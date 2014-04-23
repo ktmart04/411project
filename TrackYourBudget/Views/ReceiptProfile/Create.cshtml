@@ -1,0 +1,104 @@
+﻿@model TrackYourBudget.Models.ReceiptPage
+@using Microsoft.AspNet.Identity
+
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>ReceiptPage</h4>
+        <hr />
+        
+        @Html.ValidationSummary(true)
+        <!--{ Model.dateTime = DateTime.Now; }-->
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.venueName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.venueName)
+                @Html.ValidationMessageFor(model => model.venueName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.rciCode, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.rciCode)
+                @Html.ValidationMessageFor(model => model.rciCode)
+            </div>
+        </div> 
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.amountSpent, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.amountSpent)
+                @Html.ValidationMessageFor(model => model.amountSpent)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.descriptioninfo, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.descriptioninfo)
+                @Html.ValidationMessageFor(model => model.descriptioninfo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dateTimePurchase, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateTimePurchase) 
+                @Html.ValidationMessageFor(model => model.dateTimePurchase)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.dateTime, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateTime)
+                @Html.ValidationMessageFor(model => model.dateTime)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Category, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Category)
+                @Html.ValidationMessageFor(model => model.Category)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PaymentType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PaymentType)
+                @Html.ValidationMessageFor(model => model.PaymentType)
+            </div>
+        </div>
+
+        
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,168 @@
+﻿@model IEnumerable<TrackYourBudget.Models.ReceiptPage>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#piechart').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false
+            },
+            title: {
+                text: 'Browser market shares at a specific website, 2014'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                type: 'pie',
+                name: 'Browser share',
+                data: [
+                    ['Firefox', 45.0],
+                ['IE', 26.8],
+                {
+                    name: 'Chrome',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Safari', 8.5],
+                ['Opera', 6.2],
+                ['Others', 0.7]
+                ]
+            }]
+        });
+    });
+
+</script>
+
+
+<script src="http://code.highcharts.com/2.2.4/highcharts.js"></script>
+<script src="http://code.highcharts.com/2.2/modules/exporting.js"></script>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="#"</a> </li>
+                <li><a href="#"</a> </li>
+                <li class="active"><a href="#">Overview</a></li>
+                <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
+
+            </ul>
+        </div>
+
+        <div class="page-header">
+            <h1 class="page-header">Dashboard</h1>
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <h4>Category Breakdown</h4>
+                    <img class="img-responsive img-thumbnail" src="http://www.mathsisfun.com/data/images/pie-chart-movies.gif" />                    
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h4>Total Spending by Month</h4>
+                    <div id="piechart"></div>
+                   <!--<img class="img-responsive img-thumbnail" src="http://wijmo.com/files/img/linechart_symbols.png" /> -->                    
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <h4>Spending by Category</h4>
+                    <img class="img-responsive img-thumbnail" src="http://www.mathsisfun.com/data/images/bar-chart-movies.gif" />                    
+                </div>
+            </div>
+
+            <h2 class="sub-header">Receipt Entries <h5>@Html.ActionLink("Create New", "Create")</h5></h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.venueName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.rciCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.amountSpent)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.descriptioninfo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.dateTimePurchase)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.dateTime)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Category)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.PaymentType)
+                            </th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.venueName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.rciCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.amountSpent)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.descriptioninfo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dateTimePurchase)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.dateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PaymentType)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.rdiCode }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.rdiCode }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.rdiCode })
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                </table>            
+            </div>
+        </div>
+    </div>
+</div>
+

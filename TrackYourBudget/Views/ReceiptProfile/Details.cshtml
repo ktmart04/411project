@@ -1,0 +1,82 @@
+﻿@model TrackYourBudget.Models.ReceiptPage
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ReceiptPage</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.venueName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.venueName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rciCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rciCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.amountSpent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.amountSpent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descriptioninfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descriptioninfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateTimePurchase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateTimePurchase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.rdiCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
